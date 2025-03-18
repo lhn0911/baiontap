@@ -5,7 +5,7 @@ import entity.Products;
 
 import java.util.Scanner;
 
-public class main {
+public class Shopmanagement {
     private static Categories[] categories = new Categories[100];
     private static Products[] products = new Products[100];
     private static int categoryCount = 0;
@@ -95,7 +95,6 @@ public class main {
                                 }
                                 break;
                             case 6:
-                                System.exit(0);
                                 break;
                             default:
                                 System.out.println("Lựa chọn không hợp lệ!");
@@ -266,7 +265,6 @@ public class main {
                                 }
                                 break;
                             case 10:
-                                System.exit(0);
                                 break;
                             default:
                                 System.out.println("Lựa chọn không hợp lệ!");
