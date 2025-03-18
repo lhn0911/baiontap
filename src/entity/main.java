@@ -103,7 +103,6 @@ public class main {
     }
 
 
-
     private static void deleteCategory(Scanner scanner) {
         System.out.print("Nhập mã danh mục cần xóa: ");
         int id = scanner.nextInt();
@@ -163,13 +162,14 @@ public class main {
                 case 6:
                     searchByPrice(scanner);
                     break;
-                case 7: sortProducts();
+                case 7:
+                    sortProducts();
                     break;
                 case 8:
-                    //
+                    sellProduct(scanner);
                     break;
                 case 9:
-                    //
+                    statisticByCategory();
                     break;
                 case 10:
                     return;
@@ -210,7 +210,6 @@ public class main {
         }
         System.out.println("Không tìm thấy sản phẩm!");
     }
-
 
 
     private static void deleteProduct(Scanner scanner) {
@@ -269,4 +268,50 @@ public class main {
         System.out.println("Sản phẩm đã được sắp xếp theo giá bán tăng dần.");
         listProducts();
     }
+
+    private static void sellProduct(Scanner scanner) {
+        System.out.print("Nhập mã sản phẩm cần bán: ");
+        String id = scanner.nextLine();
+
+        for (int i = 0; i < productCount; i++) {
+            if (products[i].getId_product().equals(id)) {
+                System.out.print("Nhập số lượng cần bán: ");
+                int quantity = scanner.nextInt();
+                scanner.nextLine();
+
+                if (quantity <= 0) {
+                    System.out.println("Số lượng không hợp lệ!");
+                    return;
+                }
+
+                if (products[i].getQuantity() >= quantity) {
+                    products[i].setQuantity(products[i].getQuantity() - quantity);
+                    System.out.println("Bán sản phẩm thành công!");
+                } else {
+                    System.out.println("Số lượng sản phẩm không đủ!");
+                }
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy sản phẩm!");
+    }
+
+    private static void statisticByCategory() {
+        if (categoryCount == 0) {
+            System.out.println("Chưa có danh mục nào!");
+            return;
+        }
+
+        for (int i = 0; i < categoryCount; i++) {
+            int count = 0;
+            for (int j = 0; j < productCount; j++) {
+                if (products[j].getId_category() == categories[i].getId_category()) {
+                    count++;
+                }
+            }
+            System.out.println("Danh mục: " + categories[i].getName_category() + " - Số lượng sản phẩm: " + count);
+        }
+    }
+
+
 }

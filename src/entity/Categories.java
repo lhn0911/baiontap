@@ -9,9 +9,15 @@ public class Categories implements IApp {
     private String description;
     private boolean status;
 
-    public Categories() {}
+    public Categories() {
 
-    public Categories(int id_category, String name_category, int priority, String description, boolean status) {
+    }
+
+    public Categories(int id_category,
+                      String name_category,
+                      int priority,
+                      String description,
+                      boolean status) {
         this.id_category = id_category;
         this.name_category = name_category;
         this.priority = priority;

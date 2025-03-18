@@ -17,7 +17,15 @@ public class Products implements IApp{
 
     }
 
-    public Products(String id_product, String name_product, float import_price, float export_price, String title, String description, int quantity, int id_category, int status) {
+    public Products(String id_product,
+                    String name_product,
+                    float import_price,
+                    float export_price,
+                    String title,
+                    String description,
+                    int quantity,
+                    int id_category,
+                    int status) {
         this.id_product = id_product;
         this.name_product = name_product;
         this.import_price = import_price;
